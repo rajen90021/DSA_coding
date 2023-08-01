@@ -5,7 +5,8 @@ public class Starting {
         System.out.println("hiiii rajen starting");
         System.out.println("hiiii rajen starting");
 
-        System.out.println("hiiii rajen starting dev 1");
+        System.out.println("hiiii rajen startingok  dev 1");
+        System.out.println("hiiii rajen startingok added  dev 1");
 
     }
 }
