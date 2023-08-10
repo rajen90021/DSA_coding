@@ -207,9 +207,24 @@ public static void secondlargest(int[] arr){
     }
     System.out.println("\n second largest is \n"+max2);
 }
+public static void firstvaluerepating(int[] arr){
+    HashMap<Integer,Integer> map= new HashMap<>();
+    for (int j : arr) {
+        if (map.containsKey(j)) {
+            System.out.println(" repating first value is " + j);
+            int oldfre = map.get(j);
+            int newfre = oldfre + 1;
+            map.put(j, newfre);
+            break;
+        } else {
+            map.put(j, 1);
+        }
+
+    }
+}
 
     public static void main(String[] args) {
-        int[] arr = {3,4,5,19,2,55,91,9};
+        int[] arr = {3,32,5,89,42,55,19,19};
 
       //  largestelement(arr);
       //  int value = searchelement(arr, 0);
@@ -223,6 +238,7 @@ public static void secondlargest(int[] arr){
         //targetsum(arr, 2);
 //        uniquenoinrepatingarray(arr);
         //secondlargest(arr);
+        firstvaluerepating(arr);
 }
     }
 
