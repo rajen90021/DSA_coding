@@ -4,7 +4,13 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class Starting {
-public static  void valueoccurance(int[] arr,int val){
+
+    public static void printarray(int[] arr){
+        for(int i=0;i< arr.length;i++){
+            System.out.print(" "+arr[i]);
+        }
+    }
+    public static  void valueoccurance(int[] arr,int val){
 
 //
 //    int count=0;
@@ -222,9 +228,150 @@ public static void firstvaluerepating(int[] arr){
 
     }
 }
+    private static int[] reverarray(int[] arr) {
+
+    int[] arr2= new int[arr.length];
+    int j=0;
+    for(int i=arr.length-1;i>=0;i--){
+        arr2[j]=arr[i];
+        j++;
+    }
+    for(int i=0;i< arr2.length;i++){
+        System.out.print("  "+arr2[i]);
+    }
+     return arr2;
+    }
+    public static void rotatearraybyk(int[] arr,int key){
+    //ans is if k=2 then 6,7,1,2,3,4,5
+        int[] ans= new int[arr.length];
+       int val=  key = key% arr.length;
+        System.out.println(key);
+        int j=0;
+        for(int i = arr.length-val;i< arr.length;i++){
+            ans[j++]=arr[i];
+        }
+       for( int k=0;k<arr.length-val;k++){
+          ans[j]=arr[k];
+          j++;
+       }
+        printarray(ans);
+
+    }
+    private static void reverarray2(int[] arr ,int first, int last) {
+
+           while (first<last){
+               int temp= arr[first];
+               arr[first]=arr[last];
+               arr[last]=temp;
+               first++;
+               last--;
+           }
+    }
+    public static void rotatearraywithoutspacek(int[] arr,int key){
+        //ans is if k=2 then 6,7,1,2,3,4,5
+
+         key= key%arr.length;
+
+       reverarray2(arr ,0 ,arr.length-key-1);
+
+
+    reverarray2(arr,arr.length-key,arr.length-1);
+
+reverarray2(arr, 0, arr.length-1);
+        printarray(arr);
+    }
+    public static void sortzeroandones( int[] arr){
+//        int count =0;
+//        for(int i=0;i<arr.length;i++){
+//            if(arr[i]==0){
+//                count++;
+//            }
+//        }
+//        for(int i=0;i< arr.length;i++){
+//         if(count>0){
+//             arr[i]=0;
+//         }
+//         else{
+//             arr[i]=1;
+//         }
+//         count--;
+//        }
+       // printarray(arr);
+        int first=0;
+        int last=arr.length-1;
+        while(first<last){
+            if(arr[first]==1 && arr[last]==0){
+
+              int temp= arr[first];
+              arr[first]= arr[last];
+              arr[last]=temp;
+              first++;
+              last--;
+            }
+            else if (arr[first] == 0) {
+                first++;
+            }
+            // If the right pointer finds a 1, move it one step left
+            else if (arr[last] == 1) {
+                last--;
+            }
+
+        }
+        printarray(arr);
+
+
+    }
+    public static void sortevenandodd(int [] arr){
+        int first=0;
+        int last=arr.length-1;
+        while(first<last){
+            if(arr[first]%2!=0 && arr[last]%2==0 ){
+                int temp= arr[first];
+                arr[first]= arr[last];
+                arr[last]=temp;
+                first++;
+                last--;
+            }
+            else if(arr[first]%2==0){
+                first++;
+            } else if (arr[last]%2!=0) {
+                last--;
+            }
+
+        }
+        printarray(arr);
+    }
+    public static void sortsquare(int [] arr){
+        int first=0;
+        int last=arr.length-1;
+        int k=0;
+        int[] ans= new int[arr.length];
+        while(first<=last){
+            int i=Math.abs(arr[first]);
+            int j=Math.abs(arr[last]);
+
+            if(i>j){
+             ans[k++]=i*i;
+             first++;
+
+            }
+            else if(i<j){
+                ans[k++]=j*j;
+                last--;
+
+            }
+            else{
+                ans[k]=j*j;
+                first++;
+                k++;
+            }
+
+        }
+        printarray(ans);
+    }
 
     public static void main(String[] args) {
-        int[] arr = {3,32,5,89,42,55,19,19};
+        int[] arr = {-10,-3,-2,1,4,5};
 
       //  largestelement(arr);
       //  int value = searchelement(arr, 0);
@@ -238,7 +385,16 @@ public static void firstvaluerepating(int[] arr){
         //targetsum(arr, 2);
 //        uniquenoinrepatingarray(arr);
         //secondlargest(arr);
-        firstvaluerepating(arr);
-}
+//        firstvaluerepating(arr);
+//     reverarray(arr);
+//     rotatearraybyk(arr, 10);
+     //   rotatearraywithoutspacek(arr, 8);
+        //reverarray2(arr);
+      //sortzeroandones(arr);
+//        sortevenandodd(arr);
+         sortsquare(arr);
     }
+
+
+}
 
