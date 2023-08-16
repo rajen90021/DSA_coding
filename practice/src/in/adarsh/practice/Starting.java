@@ -2,6 +2,7 @@ package in.adarsh.practice;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Starting {
 
@@ -369,9 +370,38 @@ reverarray2(arr, 0, arr.length-1);
         }
         printarray(ans);
     }
+          public static void prefixsum(int[] arr){
+        int[] prefix = new int[arr.length];
+
+      //  prefix[0]=arr[0];
+        int sum=0;
+        for(int i=0;i<arr.length;i++){
+            sum=0;
+            int j=0;
+            while(i>=j){
+                sum =sum+arr[j];
+                prefix[i]=sum;
+                j++;
+            }
+        }
+        printarray(prefix);
+//        int[] prefix = new int[arr.length];
+//        prefix[0] = arr[0];
+//        for(int i = 1; i < arr.length; i++) {
+//            prefix[i] = prefix[i-1] + arr[i];
+//        }
+//              printarray(prefix);
+    }
+    public static void landrsum(int[] arr, int l, int r){
+        int sum=0;
+        for(int i=l;i<=r;i++){
+            sum = arr[r-1] + arr[l-1];
+        }
+        System.out.println(sum);
+    }
 
     public static void main(String[] args) {
-        int[] arr = {-10,-3,-2,1,4,5};
+        int[] arr = {5,10,5,20};
 
       //  largestelement(arr);
       //  int value = searchelement(arr, 0);
@@ -392,7 +422,19 @@ reverarray2(arr, 0, arr.length-1);
         //reverarray2(arr);
       //sortzeroandones(arr);
 //        sortevenandodd(arr);
-         sortsquare(arr);
+         //sortsquare(arr);
+     //   prefixsum(arr);
+        //printarray(arr);
+        Scanner sc= new Scanner(System.in);
+        int n=0;
+        System.out.println("enter the size of the array ");
+        n=sc.nextInt();
+        int[] arr2= new int[n+1];
+        System.out.println("enter the value");
+        for(int i=1;i<=n;i++){
+            arr2[i]=sc.nextInt();
+        }
+        landrsum(arr2,1,4);
     }
 
 
